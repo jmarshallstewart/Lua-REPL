@@ -34,7 +34,7 @@ print("Bob is ", age, " years old.")
 io.write("Bob is ", age, " years old.\n")
 -- io.write does not add extra spacing around arguments, features more error checking,
 -- and you have to provide a newline if you want a line break. print() is intended
--- for quick-and-dirty debugging. Prefer io.write for other uses that require 
+-- for quick-and-dirty debugging. Prefer io.write for other uses that require
 -- formatted text.
 
 -- Functions begin with "function" and end with "end"
@@ -49,7 +49,7 @@ end
 
 -- Lua functions can return multiple values!
 function getSquareAndCube(x)
-    return x * x, x * x * x 
+    return x * x, x * x * x
 end
 
 -- For example, if x == 3, the above function returns 9 and 27
@@ -79,7 +79,7 @@ if x > 5 then
     io.write("greater than five\n")
 end
 
--- You can optionally add an else statement that is 
+-- You can optionally add an else statement that is
 -- executed if the if-condition is false:
 if x > 5 then
     io.write("x is greater than five.\n")
@@ -90,7 +90,7 @@ end
 -- You can also create an "if-else" ladder with the elseif keyword like this:
 score = 100
 
-if score < 10 then 
+if score < 10 then
     io.write("You can do better.\n")
 elseif score < 20 then
     io.write("Nice try!\n")
@@ -132,14 +132,14 @@ while x < 10 do
         io.write("Forget this. I am outta here.\n")
         break;
     end
-end    
+end
 
 -- Fun fact: you can use do-end to create a scope block like this:
 sum = 0
 do
     local xx = 227
     local yy = 115
-    sum = xx + yy 
+    sum = xx + yy
 end -- xx and yy go out of scope here
 io.write(sum, "\n")
 
@@ -158,13 +158,13 @@ for z=1,10 do
                 goto done
             end
         end
-    end 
+    end
 end
 ::done:: -- this is the label
 
 -- Arrays(sorta...)
--- This is actually something called a Lua table, but 
--- you can also think of this particular use of a table as 
+-- This is actually something called a Lua table, but
+-- you can also think of this particular use of a table as
 -- an array:
 list = { 2, 4, 6, 8, 10 }
 
@@ -197,10 +197,10 @@ Here are some other operators and tokens with special meanings in Lua:
 
 -- HELPFUL LIBRARY STUFF
 io.write("You are running ", _VERSION, "\n")        -- shows the version of Lua that is executing your scripts.
-io.write("\nseconds elapsed: ", os.clock(), "\n")   -- shows time elapsed in seconds since the start of the application
+io.write("Seconds elapsed: ", os.clock(), "\n")     -- shows time elapsed in seconds since the start of the application
 math.randomseed( os.time() )                        -- seed RNG with current time.
 math.random()                                       -- returns a random number between 0 and 1.
 math.random(1, 6)                                   -- returns a random integer between the arguments (inclusive), so this example could return 1, 2, 3, 4, 5, or 6.
- 
+
 -- for complete documentation of the Lua language, C API and library, see:
 -- https://www.lua.org/manual/5.3/manual.html
