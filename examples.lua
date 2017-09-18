@@ -13,7 +13,7 @@ score = 0
 
 -- Notice there is no semi-colon at the end of the above statement.
 -- In Lua, C-style semi-colons to end statements are optional. The conventional
--- Lua style is to omit semi-colons, but they are valid syntacally:
+-- Lua style is to omit semi-colons, but they are valid syntactically:
 score = 20;
 
 -- Lua variables are typeless, but the values they refer to have a type.
