@@ -30,9 +30,16 @@ myVariable = nil        -- nil is like nullptr in C++. It means the variable doe
 age = 17
 print("Bob is ", age, " years old.")
 
+-- Compare the output above with:
+io.write("Bob is ", age, " years old.\n")
+-- io.write does not add extra spacing around arguments, features more error checking,
+-- and you have to provide a newline if you want a line break. print() is meant more
+-- for quick-and-dirty debugging. Prefer io.write for all other uses that require 
+-- formatted text.
+
 -- Functions begin with "function" and end with "end"
 function sayHi(name)
-    print("Hi, ", name, "!")
+    io.write("Hi, ", name, "!\n")
 end
 
 -- You can return values from a function with the "return" keyword:
@@ -69,34 +76,34 @@ cannotSeeMove = not canSeeMovie
 -- if (must have matching "then" and "end")
 x = 15
 if x > 5 then
-    print("greater than five")
+    io.write("greater than five\n")
 end
 
 -- You can optionally add an else statement that is 
 -- executed if the if-condition is false:
 if x > 5 then
-    print("x is greater than five.")
+    io.write("x is greater than five.\n")
 else
-    print("x is less than or equal to five")
+    io.write("x is less than or equal to five\n")
 end
 
 -- You can also create an "if-else" ladder with the elseif keyword like this:
 score = 100
 
 if score < 10 then 
-    print("You can do better.")
+    io.write("You can do better.\n")
 elseif score < 20 then
-    print("Nice try!")
+    io.write("Nice try!\n")
 elseif score < 50 then
-    print("Not a bad score at all...")
+    io.write("Not a bad score at all...\n")
 else
-    print("You did really well!")
+    io.write("You did really well!\n")
 end
 
 -- while (must have matching "do" and "end")
 x = 0
 while x < 10 do
-    print(x)
+    io.write(x, "\n")
     x = x + 1
 end
 
@@ -108,21 +115,21 @@ until x > 10
 
 -- for loops!
 for i = 1, 15 do
-    print(i)
+    io.write(i, "\n")
 end
 
 -- You can add an optional third argument to change the iteration step for the for loop:
 for i = 15, 1, -1 do -- count backwards from 15 to 1.
-    print(i)
+    io.write(i, "\n")
 end
 
 -- You can use "break" to break out of any the above loops like in C:
 x = 0
 while x < 10 do
     x = x + 1
-    print(x)
+    io.write(x, "\n")
     if x == 5 then
-        print("Forget this. I am outta here.")
+        io.write("Forget this. I am outta here.\n")
         break;
     end
 end    
@@ -134,7 +141,7 @@ do
     local yy = 115
     sum = xx + yy 
 end -- xx and yy go out of scope here
-print(sum)
+io.write(sum, "\n")
 
 -- goto
 -- Yes, you can use goto to jump to a label in your code.
@@ -147,7 +154,7 @@ for z=1,10 do
     for y=1,10 do
         for x=1,10 do
             if x^2 + y^2 == z^2 then
-                print('found a Pythagorean triple:', x, y, z)
+                io.write('found a Pythagorean triple: ', x, y, z, '\n')
                 goto done
             end
         end
@@ -164,7 +171,7 @@ list = { 2, 4, 6, 8, 10 }
 -- You can iterate over the elements of this table like so:
 -- (in this example, "in" is a reserved word and ipairs() is a library function)
 for index, value in ipairs(list) do
-    print(index, ": ", value)
+    io.write(index, ": ", value, "\n")
 end
 
 --[[
@@ -189,11 +196,11 @@ Here are some other operators and tokens with special meanings in Lua:
 ]]--
 
 -- HELPFUL LIBRARY STUFF
-print("You are running ", _VERSION)         -- shows the version of Lua that is executing your scripts.
-print("\nseconds elapsed: ", os.clock())    -- shows time elapsed in seconds since the start of the application
-math.randomseed( os.time() )                -- seed RNG with current time.
-math.random()                               -- returns a random number between 0 and 1.
-math.random(1, 6)                           -- returns a random integer between the arguments (inclusive), so this example could return 1, 2, 3, 4, 5, or 6.
+io.write("You are running ", _VERSION, "\n")        -- shows the version of Lua that is executing your scripts.
+io.write("\nseconds elapsed: ", os.clock(), "\n")   -- shows time elapsed in seconds since the start of the application
+math.randomseed( os.time() )                        -- seed RNG with current time.
+math.random()                                       -- returns a random number between 0 and 1.
+math.random(1, 6)                                   -- returns a random integer between the arguments (inclusive), so this example could return 1, 2, 3, 4, 5, or 6.
  
 -- for complete documentation of the Lua language, C API and library, see:
 -- https://www.lua.org/manual/5.3/manual.html
