@@ -16,7 +16,7 @@ score = 0
 -- Lua style is to omit semi-colons, but they are valid syntactically:
 score = 20;
 
--- Lua variables are typeless, but the values they refer to have a type.
+-- Lua variables are typeless, but the values they refer to have types.
 myVariable = 20         -- number
 myVariable = 20.125     -- also a number
 myVariable = "hello"    -- string
@@ -33,8 +33,8 @@ print("Bob is ", age, " years old.")
 -- Compare the output above with:
 io.write("Bob is ", age, " years old.\n")
 -- io.write does not add extra spacing around arguments, features more error checking,
--- and you have to provide a newline if you want a line break. print() is meant more
--- for quick-and-dirty debugging. Prefer io.write for all other uses that require 
+-- and you have to provide a newline if you want a line break. print() is intended
+-- for quick-and-dirty debugging. Prefer io.write for other uses that require 
 -- formatted text.
 
 -- Functions begin with "function" and end with "end"
@@ -52,7 +52,7 @@ function getSquareAndCube(x)
     return x * x, x * x * x 
 end
 
--- For example, if x == 3, this function returns 9 and 27
+-- For example, if x == 3, the above function returns 9 and 27
 square, cube = getSquareAndCube(3)
 
 -- Lua variables are global by default. To create variables that are scoped to the
@@ -68,8 +68,8 @@ is17OrOlder = true
 hasMoney = true
 
 isAllowed = isWithLegalGuardian or is17OrOlder
-canSeeMovie = isAllowed and hasMoney
-cannotSeeMove = not canSeeMovie
+canSeeMovieRatedR = isAllowed and hasMoney
+cannotSeeMovieRatedR = not canSeeMovieRatedR
 
 -- control flow examples:
 
