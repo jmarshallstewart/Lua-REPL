@@ -31,7 +31,6 @@ int main()
 		
 	// Evaluate user input as lua script. Evaluate each line until "quit" is entered. 
 	do {
-
 		// read input from keyboard.
 		cout << "> ";
 		getline(cin, input);
@@ -56,8 +55,7 @@ int main()
 		}
 	}
 	while (input != "quit");
-	
-	
+		
 	// release memory associated with our state.
 	lua_close(state);
 }
