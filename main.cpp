@@ -25,15 +25,17 @@ int main()
 
 	// make standard libraries available in the state.
 	luaL_openlibs(state);
-
-	// read input from keyboard.
-	cout << "> ";
+		
+	// for storing input read from the keyboard.
 	string input;
-	getline(cin, input);
-	
+		
 	// Evaluate user input as lua script. Evaluate each line until "quit" is entered. 
-	while (input != "quit")
-	{
+	do {
+
+		// read input from keyboard.
+		cout << "> ";
+		getline(cin, input);
+
 		// convert input to a null-terminated C-style string.
 		const char* command = input.c_str();
 
@@ -48,15 +50,13 @@ int main()
 				printError(state); // pcall failed
 			}
 		}
-		else 
+		else
 		{
 			printError(state); // loadbuffer failed
 		}
-		
-		// prompt user for more input.
-		cout << "> ";
-		getline(cin, input);
 	}
+	while (input != "quit");
+	
 	
 	// release memory associated with our state.
 	lua_close(state);
