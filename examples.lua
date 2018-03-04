@@ -58,7 +58,7 @@ square, cube = getSquareAndCube(3)
 -- Lua variables are global by default. To create variables that are scoped to the
 -- block they were created in, use the local keyword
 function variableTest()
-    local localX = 5 -- is in scope on while variableTest() is executing
+    local localX = 5 -- is in scope only while variableTest() is executing
 end
 print("localX: ", localX) -- expect this to print 'nil'
 
