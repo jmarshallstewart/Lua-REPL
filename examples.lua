@@ -199,10 +199,10 @@ for i = 1, #list do
 end
 
 -- to add things to the end of the table when using it as an array:
-list[#list + 1] = nextElement
+list[#list + 1] = 899
 
 -- to remove an element from the array at a given index, use:
-table.remove(list, index)
+table.remove(list, 3)
 
 --[[
 
