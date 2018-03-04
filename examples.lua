@@ -162,10 +162,28 @@ for z=1,10 do
 end
 ::done:: -- this is the label
 
+-- Tables
+-- Aggregate (class-like) objects in Lua are tables.
+-- To begin, think of tables like dictionaries, or 
+-- lists of key-value pairs.
+
+-- You can declare a table and assign it to a variable like this:
+myTable = {}
+
+-- You can add properties (key-value pairs) like this:
+myTable.isActive = true
+
+-- You can get the number of properties a table has with this syntax:
+length = #myTable
+
+-- Note that you can add keys to the table at any point during execution of
+-- the script. There is no need to declare a class type beforehand like you
+-- do in statically typed languages like C++.
+
 -- Arrays(sorta...)
--- This is actually something called a Lua table, but
--- you can also think of this particular use of a table as
--- an array:
+-- You can use a table as an array.
+
+-- You can initialize such a table like this:
 list = { 2, 4, 6, 8, 10 }
 
 -- You can iterate over the elements of this table like so:
@@ -173,6 +191,18 @@ list = { 2, 4, 6, 8, 10 }
 for index, value in ipairs(list) do
     io.write(index, ": ", value, "\n")
 end
+
+-- In lua, table-indexing begins at 1, not 0 like in many other programming languages.
+-- Here is another example for iterating over a table used as a list:
+for i = 1, #list do
+    io.write(i, ": ", list[i], "\n")
+end
+
+-- to add things to the end of the table when using it as an array:
+list[#list + 1] = nextElement
+
+-- to remove an element from the array at a given index, use:
+table.remove(list, index)
 
 --[[
 
@@ -185,7 +215,8 @@ then      true      until     while
 
 Guess what: In the examples above, you used every single one of these at least once:)
 
-Here are some other operators and tokens with special meanings in Lua:
+Here are some other operators and tokens with special meanings in Lua. Again, you 
+probably recognize most of these from other programming languages:
 
  +     -     *     /     %     ^     #
  &     ~     |     <<    >>    //
