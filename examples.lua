@@ -232,6 +232,7 @@ io.write("Seconds elapsed: ", os.clock(), "\n")     -- shows time elapsed in sec
 math.randomseed( os.time() )                        -- seed RNG with current time.
 math.random()                                       -- returns a random number between 0 and 1.
 math.random(1, 6)                                   -- returns a random integer between the arguments (inclusive), so this example could return 1, 2, 3, 4, 5, or 6.
+--dofile("someScript.lua")                          -- executes the specified lua file.
 
 -- for complete documentation of the Lua language, C API and library, see:
 -- https://www.lua.org/manual/5.3/manual.html
