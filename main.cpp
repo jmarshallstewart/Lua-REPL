@@ -30,7 +30,8 @@ int main()
 	string input;
 		
 	// Evaluate user input as lua script. Evaluate each line until "quit" is entered. 
-	do {
+	for (;;)
+	{
 		// read input from keyboard.
 		cout << "> ";
 		getline(cin, input);
@@ -38,24 +39,30 @@ int main()
 		// convert input to a null-terminated C-style string.
 		const char* command = input.c_str();
 
-		int result = luaL_loadbuffer(state, command, strlen(command), nullptr);
-
-		if (result == LUA_OK)
+		if (input == "quit")
 		{
-			result = lua_pcall(state, 0, LUA_MULTRET, 0);
-
-			if (result != LUA_OK)
-			{
-				printError(state); // pcall failed
-			}
+			break;
 		}
 		else
 		{
-			printError(state); // loadbuffer failed
+			int result = luaL_loadbuffer(state, command, strlen(command), nullptr);
+
+			if (result == LUA_OK)
+			{
+				result = lua_pcall(state, 0, LUA_MULTRET, 0);
+
+				if (result != LUA_OK)
+				{
+					printError(state); // pcall failed
+				}
+			}
+			else
+			{
+				printError(state); // loadbuffer failed
+			}
 		}
 	}
-	while (input != "quit");
-		
+			
 	// release memory associated with our state.
 	lua_close(state);
 }
